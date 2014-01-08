@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/aop 
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- 使Spring支持自动检测组件，如注解的Controller -->
+	<context:component-scan base-package="com.nas.*" />
+	<bean id="handlerExceptionResolver" class="com.nas.gproc.handler.NasHandler" />
+	<import resource="db-mysql.xml" />
+	<import resource="hibernate-cfg.xml" />
+	<!-- 静态资源访问设置 -->
+	<mvc:resources mapping="/assets/common/**" location="/assets/common/" />
+	<mvc:resources mapping="/assets/outside/**" location="/assets/outside/" />
+	<mvc:resources mapping="/robots.txt" location="/robots.txt" />
+	<mvc:annotation-driven />
+	<!-- 拦截器定义 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.molos.handler.Permission">
+				<property name="uncheckUrls">
+					<list>
+						<value>/login</value>
+						<value>/doLogin</value>
+						<value>/robots.txt</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/assets/nas/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- freeMarker静态化处理设置 -->
+	<!-- <bean id="freeMarkerConfigurer" -->
+	<!-- class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> -->
+	<!-- <property name="templateLoaderPath" value="/WEB-INF/asserts/templates/" 
+		/> -->
+	<!-- <property name="freemarkerSettings"> -->
+	<!-- <props> -->
+	<!-- <prop key="template_update_delay">0</prop> -->
+	<!-- <prop key="default_encoding">UTF-8</prop> -->
+	<!-- <prop key="locale">zh_CN</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="exceptionResolver" -->
+	<!-- class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> -->
+	<!-- <property name="exceptionMappings"> -->
+	<!-- <props> -->
+	<!-- <prop key="java.lang.Exception">errors/error</prop> -->
+	<!-- <prop key="java.lang.Throwable">errors/err</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- <property name="statusCodes"> -->
+	<!-- <props> -->
+	<!-- <prop key="errors/error">500</prop> -->
+	<!-- <prop key="errors/404">404</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- 设置日志输出级别，不定义则默认不输出警告等错误日志信息 -->
+	<!-- <property name="warnLogCategory" value="WARN"></property> -->
+	<!-- 默认错误页面，当找不到上面mappings中指定的异常对应视图时，使用本默认配置 -->
+	<!-- <property name="defaultErrorView" value="errors/error"></property> -->
+	<!-- 默认HTTP状态码 -->
+	<!-- <property name="defaultStatusCode" value="500"></property> -->
+	<!-- </bean> -->
+</beans>
