@@ -16,7 +16,13 @@ http://www.springframework.org/schema/task/spring-task-3.0.xsd"
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<!-- <value>com.nas.beans.SysUpi</value> -->
+				<!-- 权限控制相关对象 -->
+				<value>com.nas.beans.AuthRelGroupRole</value>
+				<value>com.nas.beans.AuthRelRoleResource</value>
+				<value>com.nas.beans.AuthResource</value>
+				<value>com.nas.beans.AuthRole</value>
+				<value>com.nas.beans.AuthUserBase</value>
+				<value>com.nas.beans.AuthUserGroup</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
