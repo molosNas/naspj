@@ -1,7 +1,5 @@
 package com.nas.msc.auth.auth_user_base.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -28,8 +26,13 @@ public class AuthUserBaseService extends BaseService<AuthUserBase> implements
 	}
 
 	@Override
-	public List<AuthUserBase> querySomeT() {
+	public AuthUserBase queryUserBase(AuthUserBase ab) {
+		return getDao().queryUserBase(ab);
+	}
 
-		return getDao().q();
+	@Override
+	public Object assemResources(AuthUserBase ab) {
+		
+		return null;
 	}
 }

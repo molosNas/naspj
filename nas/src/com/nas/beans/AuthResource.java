@@ -22,11 +22,24 @@ public class AuthResource extends BaseBean {
 	 */
 	@Column(name = "module_name")
 	private String moduleName;
+
 	/**
 	 * 模块路径
 	 */
 	@Column(name = "module_path")
 	private String modulePath;
+
+	/**
+	 * 菜单级别，默认0为一级菜单，
+	 */
+	@Column(name = "level")
+	private int level;
+
+	/**
+	 * 父类菜单ID号
+	 */
+	@Column(name = "parentId")
+	private int parentId;
 
 	public String getModuleName() {
 		return moduleName;
