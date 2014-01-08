@@ -8,6 +8,7 @@ import com.nas.beans.base.BaseBean;
 
 /**
  * 
+ * 资源记录
  * 
  * @author autogen
  * 
@@ -34,6 +35,7 @@ public class AuthResource extends BaseBean {
 	public void setModuleName(String moduleName) {
 		this.moduleName = moduleName;
 	}
+
 	public String getModulePath() {
 		return modulePath;
 	}
@@ -41,8 +43,8 @@ public class AuthResource extends BaseBean {
 	public void setModulePath(String modulePath) {
 		this.modulePath = modulePath;
 	}
-	 
+
 	public AuthResource() {
-	
+
 	}
 }

@@ -8,6 +8,7 @@ import com.nas.beans.base.BaseBean;
 
 /**
  * 
+ * 分组信息
  * 
  * @author autogen
  * 
@@ -34,6 +35,7 @@ public class AuthUserGroup extends BaseBean {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
+
 	public String getComment() {
 		return comment;
 	}
@@ -41,8 +43,8 @@ public class AuthUserGroup extends BaseBean {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	 
+
 	public AuthUserGroup() {
-	
+
 	}
 }

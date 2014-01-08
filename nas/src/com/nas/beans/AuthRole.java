@@ -8,6 +8,7 @@ import com.nas.beans.base.BaseBean;
 
 /**
  * 
+ * 角色记录
  * 
  * @author autogen
  * 
@@ -29,8 +30,8 @@ public class AuthRole extends BaseBean {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	 
+
 	public AuthRole() {
-	
+
 	}
 }
