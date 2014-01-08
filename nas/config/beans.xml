@@ -17,29 +17,29 @@
 			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- 使Spring支持自动检测组件，如注解的Controller -->
 	<context:component-scan base-package="com.nas.*" />
-<!-- 	<bean id="handlerExceptionResolver" class="com.nas.gproc.handler.NasHandler" /> -->
+	<!-- <bean id="handlerExceptionResolver" class="com.nas.gproc.handler.NasHandler" 
+		/> -->
 	<import resource="db-mysql.xml" />
 	<import resource="hibernate-cfg.xml" />
 	<!-- 静态资源访问设置 -->
 	<mvc:resources mapping="/assets/common/**" location="/assets/common/" />
-	<mvc:resources mapping="/assets/outside/**" location="/assets/outside/" />
 	<mvc:resources mapping="/robots.txt" location="/robots.txt" />
 	<mvc:annotation-driven />
 	<!-- 拦截器定义 -->
-	<!-- <mvc:interceptors> -->
-	<!-- <mvc:interceptor> -->
-	<!-- <mvc:mapping path="/**" /> -->
-	<!-- <bean class="com.molos.handler.Permission"> -->
-	<!-- <property name="uncheckUrls"> -->
-	<!-- <list> -->
-	<!-- <value>/login</value> -->
-	<!-- <value>/doLogin</value> -->
-	<!-- <value>/robots.txt</value> -->
-	<!-- </list> -->
-	<!-- </property> -->
-	<!-- </bean> -->
-	<!-- </mvc:interceptor> -->
-	<!-- </mvc:interceptors> -->
+<!-- 	<mvc:interceptors> -->
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/**" /> -->
+<!-- 			<bean class="com.nas.interceptors.PermissionInterceptor"> -->
+<!-- 				<property name="uncheckUrls"> -->
+<!-- 					<list> -->
+<!-- 						<value>/login</value> -->
+<!-- 						<value>/doLogin</value> -->
+<!-- 						<value>/robots.txt</value> -->
+<!-- 					</list> -->
+<!-- 				</property> -->
+<!-- 			</bean> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 	</mvc:interceptors> -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
