@@ -18,12 +18,12 @@ import com.nas.beans.base.BaseBean;
 public class AuthResource extends BaseBean {
 
 	/**
-	 * 
+	 * 模块名称
 	 */
 	@Column(name = "module_name")
 	private String moduleName;
 	/**
-	 * 
+	 * 模块路径
 	 */
 	@Column(name = "module_path")
 	private String modulePath;

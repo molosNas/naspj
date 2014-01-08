@@ -18,12 +18,12 @@ import com.nas.beans.base.BaseBean;
 public class AuthUserGroup extends BaseBean {
 
 	/**
-	 * 
+	 * 组名称
 	 */
 	@Column(name = "group_name")
 	private String groupName;
 	/**
-	 * 
+	 * 组别介绍
 	 */
 	@Column(name = "comment")
 	private String comment;

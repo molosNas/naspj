@@ -26,38 +26,39 @@ import com.nas.beans.base.BaseBean;
 public class AuthRelGroupRole extends BaseBean {
 
 	/**
-	 * 
+	 * 分组信息
 	 */
 	@OneToMany(targetEntity = AuthUserGroup.class, cascade = CascadeType.ALL)
 	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name = "auth_user_group_id", updatable = false)
-	private Set<AuthUserGroup> augList;
+	private Set<AuthUserGroup> authUserGroups;
+
 	/**
-	 * 
+	 * 角色信息
 	 */
 	@OneToMany(targetEntity = AuthRole.class, cascade = CascadeType.ALL)
 	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name = "auth_role_id", updatable = false)
-	private Set<AuthRole> arList;
+	private Set<AuthRole> authRoles;
 
 	public AuthRelGroupRole() {
 
 	}
 
-	public Set<AuthUserGroup> getAugList() {
-		return augList;
+	public Set<AuthUserGroup> getAuthUserGroups() {
+		return authUserGroups;
 	}
 
-	public void setAugList(Set<AuthUserGroup> augList) {
-		this.augList = augList;
+	public void setAuthUserGroups(Set<AuthUserGroup> authUserGroups) {
+		this.authUserGroups = authUserGroups;
 	}
 
-	public Set<AuthRole> getArList() {
-		return arList;
+	public Set<AuthRole> getAuthRoles() {
+		return authRoles;
 	}
 
-	public void setArList(Set<AuthRole> arList) {
-		this.arList = arList;
+	public void setAuthRoles(Set<AuthRole> authRoles) {
+		this.authRoles = authRoles;
 	}
 
 }

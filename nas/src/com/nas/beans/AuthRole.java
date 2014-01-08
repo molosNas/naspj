@@ -18,7 +18,7 @@ import com.nas.beans.base.BaseBean;
 public class AuthRole extends BaseBean {
 
 	/**
-	 * 
+	 * 角色名称
 	 */
 	@Column(name = "role_name")
 	private String roleName;
