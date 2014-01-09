@@ -26,6 +26,19 @@ public class AuthUserBaseCtl extends BaseCtl {
 	private IAuthUserBaseService service;
 
 	/**
+	 * 跳转到用户管理界面
+	 * 
+	 * @return
+	 */
+	@RequestMapping("umanager")
+	public ModelAndView userManager(HttpSession se) {
+		
+		//查询页面操作权限
+		
+		return new ModelAndView("auth/users/users");
+	}
+
+	/**
 	 * 跳转到登录页面
 	 * 
 	 * @return
