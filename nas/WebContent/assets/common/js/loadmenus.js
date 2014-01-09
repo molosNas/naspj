@@ -3,24 +3,16 @@ window.onload = function() {
 };
 
 var onlyOpenTitle = "欢迎使用";// 不允许关闭的标签的标题
-
-$(function() {
-	InitLeftMenu();
+var _menus;
+function initMenu(_menus){
+	InitLeftMenu(_menus);
 	tabClose();
 	tabCloseEven();
-
-	/*
-	 * 选择TAB时刷新内容 $('#tabs').tabs({ onSelect: function (title) { var currTab =
-	 * $('#tabs').tabs('getTab', title); var iframe =
-	 * $(currTab.panel('options').content);
-	 * 
-	 * var src = iframe.attr('src'); if(src) $('#tabs').tabs('update', { tab:
-	 * currTab, options: { content: createFrame(src)} }); } });
-	 */
-});
-
+}
+ 
 // 初始化左侧
-function InitLeftMenu() {
+function InitLeftMenu(_menus) {
+	this._menus=_menus;
 	$("#nav").accordion({
 		animate : false,
 		fit : true,
@@ -31,18 +23,15 @@ function InitLeftMenu() {
 		var menulist = '';
 		menulist += '<ul class="navlist">';
 		$.each(n.menus, function(j, o) {
-			menulist += '<li><div ><a ref="' + o.menuid + '" href="#" rel="'
+			menulist += '<li><div ><a ref="' + o.menuid + '" href="javascript:void(0);" rel="'
 					+ o.url + '" ><span class="icon ' + o.icon
 					+ '" >&nbsp;</span><span class="nav">' + o.menuname
 					+ '</span></a></div> ';
-
 			if (o.child && o.child.length > 0) {
-				// li.find('div').addClass('icon-arrow');
-
 				menulist += '<ul class="third_ul">';
 				$.each(o.child, function(k, p) {
 					menulist += '<li><div><a ref="' + p.menuid
-							+ '" href="#" rel="' + p.url
+							+ '" href="javascript:void(0);" rel="' + p.url
 							+ '" ><span class="icon ' + p.icon
 							+ '" >&nbsp;</span><span class="nav">' + p.menuname
 							+ '</span></a></div> </li>';
@@ -53,37 +42,30 @@ function InitLeftMenu() {
 			menulist += '</li>';
 		});
 		menulist += '</ul>';
-
 		$('#nav').accordion('add', {
 			title : n.menuname,
 			content : menulist,
 			border : false,
 			iconCls : 'icon ' + n.icon
 		});
-
 		if (i == 0)
 			selectedPanelname = n.menuname;
 
 	});
 	$('#nav').accordion('select', selectedPanelname);
-
 	$('.navlist li a').click(function() {
 		var tabTitle = $(this).children('.nav').text();
-
 		var url = $(this).attr("rel");
 		var menuid = $(this).attr("ref");
 		var icon = $(this).find('.icon').attr('class');
-
 		var third = find(menuid);
 		if (third && third.child && third.child.length > 0) {
 			$('.third_ul').slideUp();
-
 			var ul = $(this).parent().next();
 			if (ul.is(":hidden"))
 				ul.slideDown();
 			else
 				ul.slideUp();
-
 		} else {
 			addTab(tabTitle, url, icon);
 			$('.navlist li div').removeClass("selected");
