@@ -5,8 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<jsp:include page="basedef/top_eui_css.jsp" />
-<jsp:include page="basedef/top_common_js.jsp" />
+<jsp:include page="basedef/top_global.jsp" />
 <script type="text/javascript" src="assets/common/js/loadmenus.js"></script>
 <script type="text/javascript">
 	$(function() {
