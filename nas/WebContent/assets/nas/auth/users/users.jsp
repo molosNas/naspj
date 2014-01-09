@@ -35,75 +35,12 @@ $(function() {
 		displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 	});
 });
-
-var url;
-function newUser() {
-	$('#dlg').dialog('open').dialog('setTitle', '新增工艺');
-	$('#fm').form('clear');
-	url = 'save_craft';
-}
-function editUser() {
-	var row = $('#tt').datagrid('getSelected');
-	if (row) {
-		$('#dlg').dialog('open').dialog('setTitle', '修改工艺');
-		$('#fm').form('load', row);
-		url = 'update_craft?id=' + row.id;
-	}else{
-		 $.messager.alert('提示','请选择需要操作的数据!','warning');
-	}
-}
-function saveUser() {
-	$('#fm').form('submit', {
-		url: url,
-		onSubmit: function() {
-			return $(this).form('validate');
-		},
-		success: function(result) {
-			if (result.errorMsg) {
-				$.messager.show({
-					title: 'Error',
-					msg: result.errorMsg
-				});
-			} else {
-				$('#dlg').dialog('close'); // close the dialog
-				$('#tt').datagrid('reload'); // reload the user data
-			}
-		}
-	});
-}
-function destroyUser() {
-	var row = $('#tt').datagrid('getSelected');
-	if (row) {
-		$.messager.confirm('Confirm', '确定删除选中工艺?',
-		function(r) {
-			if (r) {
-				$.post('destroy_craft', {
-					id: row.id
-				},
-				function(result) {
-					if (result.success) {
-						$('#tt').datagrid('reload'); // reload the user data
-					} else {
-						$.messager.show({ // show error message
-							title: 'Error',
-							msg: result.errorMsg
-						});
-					}
-				},
-				'json');
-			}
-		});
-	}else{
-		$.messager.alert('提示','请选择需要操作的数据!','warning');
-	}
-}
-
 </script>
 </head>
 <body>
 	<table id="tt"></table>
 	<div id="toolbar">
-		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">新增</a>|
+		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addData('', '')">新增</a>|
 		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑</a>|
 		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">删除</a>
 	</div>

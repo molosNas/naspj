@@ -38,7 +38,7 @@ public class AuthResource extends BaseBean {
 	/**
 	 * 父类菜单ID号
 	 */
-	@Column(name = "parentId")
+	@Column(name = "parent_id")
 	private int parentId;
 
 	public String getModuleName() {

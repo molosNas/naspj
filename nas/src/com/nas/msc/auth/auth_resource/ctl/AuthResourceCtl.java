@@ -5,9 +5,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.molos.cds.ctl.BaseCtl;
+import com.nas.beans.AuthResource;
 import com.nas.msc.auth.auth_resource.service.IAuthResourceService;
 
 @Controller
@@ -28,4 +31,33 @@ public class AuthResourceCtl extends BaseCtl {
 
 		return new ModelAndView("auth/resource/resource");
 	}
+
+	@RequestMapping("list_resource")
+	public @ResponseBody
+	Object list(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int rows) {
+		return service.queryDatas4Map(null, null, page, rows);
+	}
+
+	@RequestMapping("save_resource")
+	public @ResponseBody
+	Object save(AuthResource ab) {
+		service.saveBean(ab);
+		return 1;
+	}
+
+	@RequestMapping("update_resource")
+	public @ResponseBody
+	Object update(AuthResource ab) {
+		service.updateBean(ab);
+		return 1;
+	}
+
+	@RequestMapping("del_resource")
+	public @ResponseBody
+	Object del(int id) {
+		service.deleteByID(id);
+		return 1;
+	}
+
 }

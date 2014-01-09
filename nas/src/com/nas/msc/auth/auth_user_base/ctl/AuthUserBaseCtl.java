@@ -120,19 +120,21 @@ public class AuthUserBaseCtl extends BaseCtl {
 	public @ResponseBody
 	Object save(AuthUserBase ab) {
 		service.saveBean(ab);
-		return null;
+		return 1;
 	}
 
 	@RequestMapping("update_user")
 	public @ResponseBody
 	Object update(AuthUserBase ab) {
-		return null;
+		service.updateBean(ab);
+		return 1;
 	}
 
 	@RequestMapping("del_user")
 	public @ResponseBody
 	Object del(int id) {
-		return null;
+		service.deleteByID(id);
+		return 1;
 	}
 
 }

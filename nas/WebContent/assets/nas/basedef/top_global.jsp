@@ -39,7 +39,7 @@ function saveData() {
 		success: function(result) {
 			if (result.errorMsg) {
 				$.messager.show({
-					title: 'save fail!',
+					title: 'Error',
 					msg: result.errorMsg
 				});
 			} else {
