@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,9 +33,9 @@ public class AuthUserBaseCtl extends BaseCtl {
 	 */
 	@RequestMapping("umanager")
 	public ModelAndView userManager(HttpSession se) {
-		
-		//查询页面操作权限
-		
+
+		// 查询页面操作权限
+
 		return new ModelAndView("auth/users/users");
 	}
 
@@ -107,4 +108,31 @@ public class AuthUserBaseCtl extends BaseCtl {
 	public ModelAndView to404() {
 		return new ModelAndView("errors/e404");
 	}
+
+	@RequestMapping("list_user")
+	public @ResponseBody
+	Object list(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int rows) {
+		return service.queryDatas4Map(null, null, page, rows);
+	}
+
+	@RequestMapping("save_user")
+	public @ResponseBody
+	Object save(AuthUserBase ab) {
+		service.saveBean(ab);
+		return null;
+	}
+
+	@RequestMapping("update_user")
+	public @ResponseBody
+	Object update(AuthUserBase ab) {
+		return null;
+	}
+
+	@RequestMapping("del_user")
+	public @ResponseBody
+	Object del(int id) {
+		return null;
+	}
+
 }
