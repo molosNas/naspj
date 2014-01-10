@@ -8,10 +8,12 @@ $.extend($.fn.validatebox.defaults.rules, {
 		validator: function(value, param) {
 			var bl = false;
 			console.log(value);
-			console.log(param);
+			console.log(param[0]);
+			console.log(param[1]);
+			msg="not good";
 			return bl;
 		},
-		message: '已存在用户!'
+		message: "not "
 	}
 });
 var url;

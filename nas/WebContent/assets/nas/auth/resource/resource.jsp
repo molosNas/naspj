@@ -60,7 +60,7 @@ $(function() {
 		<form id="fm" method="post" novalidate>
 			<div class="fitem">
 				<label>模块名称:</label> <input name="moduleName"
-					class="easyui-validatebox" required="true" validType="valiName">
+					class="easyui-validatebox" required="true" validType="isRepeat['123','321']"  invalidMessage="exception">
 			</div>
 			<div class="fitem">
 				<label>模块路径:</label> <input name="modulePath"
@@ -75,7 +75,7 @@ $(function() {
 		</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveData()">Save</a>
 		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
 	</div>  
 </body>
