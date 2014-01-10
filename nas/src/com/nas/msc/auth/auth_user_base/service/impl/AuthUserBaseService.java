@@ -21,7 +21,6 @@ public class AuthUserBaseService extends BaseService<AuthUserBase> implements
 
 	@Override
 	public IAuthUserBaseDao getDao() {
-		// TODO Auto-generated method stub
 		return (IAuthUserBaseDao) super.getDao();
 	}
 

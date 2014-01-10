@@ -2,12 +2,12 @@ package com.nas.msc.auth.auth_rel_group_role.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.molos.cds.dao.imp.BaseDao;
 import com.nas.beans.AuthRelGroupRole;
 import com.nas.msc.auth.auth_rel_group_role.dao.IAuthRelGroupRoleDao;
+import com.nas.msc.basemvc.dao.impl.NASDao;
 
 @Repository
-public class AuthRelGroupRoleDao extends BaseDao<AuthRelGroupRole> implements
+public class AuthRelGroupRoleDao extends NASDao<AuthRelGroupRole> implements
 		IAuthRelGroupRoleDao {
 
 }

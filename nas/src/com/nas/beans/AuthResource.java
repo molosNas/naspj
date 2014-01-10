@@ -10,7 +10,7 @@ import com.nas.beans.base.BaseBean;
  * 
  * 资源记录
  * 
- * @author autogen
+ * @author YangH
  * 
  */
 @Entity
@@ -55,6 +55,22 @@ public class AuthResource extends BaseBean {
 
 	public void setModulePath(String modulePath) {
 		this.modulePath = modulePath;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public int getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
 	}
 
 	public AuthResource() {

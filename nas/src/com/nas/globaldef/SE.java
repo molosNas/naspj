@@ -3,7 +3,7 @@ package com.nas.globaldef;
 /**
  * session 常量定义
  * 
- * @author Administrator
+ * @author YangH
  * 
  */
 public interface SE {

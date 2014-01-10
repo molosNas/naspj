@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
  * 
  * 只包含ID注解的基础bean对象
  * 
- * @author autogen
+ * @author YangH
  * 
  */
 @MappedSuperclass

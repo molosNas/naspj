@@ -13,7 +13,7 @@ import com.nas.globaldef.SE;
 /**
  * 路径拦截，该处为登陆拦截
  * 
- * @author Administrator
+ * @author YangH
  * 
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
@@ -30,6 +30,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (obj != null && obj instanceof AuthUserBase) {
 			return super.preHandle(request, response, handler);
 		}
+		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		StringBuilder builder = new StringBuilder();
 		builder.append("<script type=\"text/javascript\" charset=\"UTF-8\">");

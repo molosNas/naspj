@@ -10,7 +10,7 @@ import com.nas.beans.base.BaseBean;
  * 
  * 分组信息
  * 
- * @author autogen
+ * @author YangH
  * 
  */
 @Entity

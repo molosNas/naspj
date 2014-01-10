@@ -1,8 +1,8 @@
 package com.nas.msc.auth.auth_rel_group_role.dao;
 
-import com.molos.cds.dao.IBaseDao;
 import com.nas.beans.AuthRelGroupRole;
+import com.nas.msc.basemvc.dao.INASDao;
 
-public interface IAuthRelGroupRoleDao extends IBaseDao<AuthRelGroupRole> {
+public interface IAuthRelGroupRoleDao extends INASDao<AuthRelGroupRole> {
 
 }

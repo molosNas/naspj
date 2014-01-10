@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.molos.cds.ctl.BaseCtl;
 import com.nas.beans.AuthResource;
 import com.nas.msc.auth.auth_resource.service.IAuthResourceService;
+import com.nas.msc.basemvc.controller.NASCtl;
 
 @Controller
-public class AuthResourceCtl extends BaseCtl {
+public class AuthResourceCtl extends NASCtl {
 
 	@Resource
 	private IAuthResourceService service;
@@ -26,9 +26,7 @@ public class AuthResourceCtl extends BaseCtl {
 	 */
 	@RequestMapping("rmanager")
 	public ModelAndView resourceManager(HttpSession se) {
-
 		// 查询页面操作权限
-
 		return new ModelAndView("auth/resource/resource");
 	}
 
@@ -36,7 +34,7 @@ public class AuthResourceCtl extends BaseCtl {
 	public @ResponseBody
 	Object list(@RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "10") int rows) {
-		return service.queryDatas4Map(null, null, page, rows);
+		return service.query4EUI(page, rows);
 	}
 
 	@RequestMapping("save_resource")

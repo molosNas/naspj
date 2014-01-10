@@ -17,7 +17,7 @@ import com.nas.beans.base.BaseBean;
 /**
  * 
  * 
- * @author autogen
+ * @author YangH
  * 
  */
 @Entity

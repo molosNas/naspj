@@ -16,7 +16,7 @@ import com.nas.beans.base.BaseBean;
 /**
  * 基本登陆用户
  * 
- * @author autogen
+ * @author YangH
  * 
  */
 @Entity

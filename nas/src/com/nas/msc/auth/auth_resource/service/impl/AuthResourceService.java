@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.molos.cds.dao.IBaseDao;
-import com.molos.cds.service.imp.BaseService;
 import com.nas.beans.AuthResource;
 import com.nas.msc.auth.auth_resource.service.IAuthResourceService;
+import com.nas.msc.basemvc.service.impl.NASService;
 
 @Service
-public class AuthResourceService extends BaseService<AuthResource> implements
+public class AuthResourceService extends NASService<AuthResource> implements
 		IAuthResourceService {
 	@Autowired
 	@Override

@@ -18,7 +18,7 @@ import com.nas.beans.base.BaseBean;
  * 
  * 权限系统-----群组与角色关系对象
  * 
- * @author autogen
+ * @author YangH
  * 
  */
 @Entity
