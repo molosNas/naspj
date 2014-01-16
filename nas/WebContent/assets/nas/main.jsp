@@ -5,14 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
+<style type="text/css">
+li {
+	padding: 5px;
+}
+</style>
 <jsp:include page="basedef/top_global.jsp" />
 <script type="text/javascript" src="assets/common/js/loadmenus.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.post("menus",function(data){
-			console.log(data);
+		// 		$('#west').panel('move',{ left:100 });
+		$.get("assets/common/js/menu.json", function(data) {
 			initMenu(data);
-		},"json");
+		}, "json");
+		// 		$.post("menus",function(data){
+		// 			console.log(data);
+		// 			initMenu(data);
+		// 		},"json");
 	});
 </script>
 </head>
@@ -34,7 +43,7 @@
 	</div>
 	<!-- 头定义 -->
 	<div region="north" split="true" border="false"
-		style="overflow: hidden; height: 30px; background: url() #7f99be repeat-x center 50%; line-height: 20px; color: #fff; font-family: Verdana, 微软雅黑, 黑体">
+		style="overflow: hidden; height: 50px; background: url() #7f99be repeat-x center 50%; line-height: 20px; color: #fff; font-family: Verdana, 微软雅黑, 黑体">
 		<span style="float: right; padding-right: 20px;" class="head">欢迎
 			${user.name } <a href="#" id="editpass">修改密码</a> <a href="#"
 			id="loginOut">安全退出</a>

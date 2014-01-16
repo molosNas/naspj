@@ -4,16 +4,24 @@
 <jsp:include page="top_common_js.jsp" />
 <script type="text/javascript">
 $.extend($.fn.validatebox.defaults.rules, {
-	isRepeat: { //验证用户Id是否有效
+	isRepeat: { //验证单一字段是否重复
 		validator: function(value, param) {
 			var bl = false;
-			console.log(value);
-			console.log(param[0]);
-			console.log(param[1]);
-			msg="not good";
+			$.ajax({
+				type:"post",
+				url:param[0],
+				data:{ name :value },
+				dataType:"json",
+				async:false,
+				success:function(data){
+					if(data==0){
+						bl=true;
+					};
+				}
+			});
 			return bl;
 		},
-		message: "not "
+		message: "不可重复！"
 	}
 });
 var url;
@@ -61,7 +69,7 @@ function delData(_action, _tt) {
 					id: row.id
 				},
 				function(result) {
-					if (result.success) {
+					if (result==1) {
 						$('#tt').datagrid('reload');
 					} else {
 						$.messager.show({

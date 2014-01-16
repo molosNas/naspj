@@ -5,6 +5,9 @@
 <link rel="stylesheet" type="text/css"
 	href="assets/common/eui/themes/icon.css">
 <style type="text/css">
+.selected{
+background: gray;
+}
 #fm {
 	margin: 0;
 	padding: 10px 30px;
