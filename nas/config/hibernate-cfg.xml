@@ -16,6 +16,20 @@
 				<value>com.nas.beans.AuthRole</value>
 				<value>com.nas.beans.AuthUserBase</value>
 				<value>com.nas.beans.AuthUserGroup</value>
+				<!-- 产品管理 -->
+				<value>com.nas.beans.Metaprocedure</value>
+				<value>com.nas.beans.PdtAttribute</value>
+				<value>com.nas.beans.PdtComponent</value>
+				<value>com.nas.beans.PdtElement</value>
+				<value>com.nas.beans.PdtModel</value>
+				<value>com.nas.beans.PdtProposition</value>
+				<value>com.nas.beans.RefModelComponent</value>
+				<value>com.nas.beans.RefModelcomponentAttributeProposition</value>
+				<value>com.nas.beans.RefPropositionElement</value>
+				<value>com.nas.beans.TypediversAnnextype</value>
+				<value>com.nas.beans.TypediversAttributetype</value>
+				<value>com.nas.beans.TypediversModeltype</value>
+				<value>com.nas.beans.TypediversPropositiontype</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
