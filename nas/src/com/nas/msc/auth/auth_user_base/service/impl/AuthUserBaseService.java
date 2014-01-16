@@ -31,7 +31,7 @@ public class AuthUserBaseService extends BaseService<AuthUserBase> implements
 
 	@Override
 	public Object assemResources(AuthUserBase ab) {
-		
+
 		return null;
 	}
 }

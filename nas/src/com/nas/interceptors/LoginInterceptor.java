@@ -1,14 +1,9 @@
 package com.nas.interceptors;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import com.nas.beans.AuthUserBase;
-import com.nas.globaldef.SE;
 
 /**
  * 路径拦截，该处为登陆拦截

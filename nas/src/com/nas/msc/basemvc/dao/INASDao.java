@@ -1,5 +1,6 @@
 package com.nas.msc.basemvc.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.molos.cds.dao.IBaseDao;
@@ -14,4 +15,7 @@ import com.molos.cds.dao.IBaseDao;
 public interface INASDao<T> extends IBaseDao<T> {
 
 	Map<String, Object> query4EUI(int current, int size);
+
+	List<T> queryByParaAndVal(String paraName, String val);
+	
 }

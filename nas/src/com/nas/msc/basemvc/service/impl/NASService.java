@@ -1,5 +1,6 @@
 package com.nas.msc.basemvc.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -27,5 +28,10 @@ public abstract class NASService<T> extends BaseService<T> implements
 	@Override
 	public Map<String, Object> query4EUI(int current, int size) {
 		return getDao().query4EUI(current, size);
+	}
+
+	@Override
+	public List<T> queryByParaAndVal(String paraName, String val) {
+		return getDao().queryByParaAndVal(paraName, val);
 	}
 }

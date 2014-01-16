@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.molos.cds.dao.IBaseDao;
 import com.nas.beans.AuthRelGroupRole;
+import com.nas.msc.auth.auth_rel_group_role.dao.IAuthRelGroupRoleDao;
 import com.nas.msc.auth.auth_rel_group_role.service.IAuthRelGroupRoleService;
 import com.nas.msc.basemvc.service.impl.NASService;
 
@@ -17,5 +18,10 @@ public class AuthRelGroupRoleService extends NASService<AuthRelGroupRole>
 	public void setDao(
 			@Qualifier("authRelGroupRoleDao") IBaseDao<AuthRelGroupRole> dao) {
 		super.setDao(dao);
+	}
+
+	@Override
+	public IAuthRelGroupRoleDao getDao() {
+		return (IAuthRelGroupRoleDao) super.getDao();
 	}
 }

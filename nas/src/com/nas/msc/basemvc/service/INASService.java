@@ -1,5 +1,6 @@
 package com.nas.msc.basemvc.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.molos.cds.service.IBaseService;
@@ -23,4 +24,6 @@ public interface INASService<T> extends IBaseService<T> {
 	 * @return
 	 */
 	Map<String, Object> query4EUI(int current, int size);
+
+	List<T> queryByParaAndVal(String paraName, String val);
 }

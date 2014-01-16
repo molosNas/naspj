@@ -14,7 +14,7 @@ import com.nas.msc.auth.auth_resource.service.IAuthResourceService;
 import com.nas.msc.basemvc.controller.NASCtl;
 
 @Controller
-public class AuthResourceCtl extends NASCtl {
+public class AuthResourceCtl extends NASCtl<AuthResource> {
 
 	@Resource
 	private IAuthResourceService service;
@@ -37,25 +37,37 @@ public class AuthResourceCtl extends NASCtl {
 		return service.query4EUI(page, rows);
 	}
 
-	@RequestMapping("save_resource")
-	public @ResponseBody
-	Object save(AuthResource ab) {
-		service.saveBean(ab);
-		return 1;
-	}
-
-	@RequestMapping("update_resource")
-	public @ResponseBody
-	Object update(AuthResource ab) {
-		service.updateBean(ab);
-		return 1;
-	}
-
 	@RequestMapping("del_resource")
 	public @ResponseBody
 	Object del(int id) {
 		service.deleteByID(id);
 		return 1;
+	}
+
+	@Override
+	@RequestMapping("save_resource")
+	public Object save(AuthResource bean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("update_resource")
+	public Object update(AuthResource bean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object delById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ModelAndView pageView(HttpSession se) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

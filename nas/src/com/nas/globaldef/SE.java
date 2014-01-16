@@ -8,5 +8,4 @@ package com.nas.globaldef;
  */
 public interface SE {
 	static final String AUTH_USER = "AUTH_USER";
-
 }
