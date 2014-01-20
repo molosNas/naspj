@@ -1,5 +1,10 @@
 package com.nas.msc.pdtm.typedivers_attributetype.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,6 +29,19 @@ public class TypediversAttributetypeService extends
 	@Override
 	public ITypediversAttributetypeDao getDao() {
 		return (ITypediversAttributetypeDao) super.getDao();
+	}
+
+	@Override
+	public List<Map<String, Object>> queryAll4Map() {
+		List<TypediversAttributetype> list = getDao().queryAllName4Map();
+		List<Map<String, Object>> reList = new ArrayList<Map<String, Object>>();
+		for (TypediversAttributetype t : list) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("id", t.getId());
+			map.put("val", t.getName());
+			reList.add(map);
+		}
+		return reList;
 	}
 
 }

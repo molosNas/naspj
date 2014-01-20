@@ -43,6 +43,11 @@ public class TypediversAttributetype extends BaseBean {
 		this.description = description;
 	}
 
+	public TypediversAttributetype(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public TypediversAttributetype() {
 
 	}

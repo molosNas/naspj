@@ -1,45 +1,60 @@
 package com.nas.msc.pdtm.typedivers_propositiontype.ctl;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.nas.beans.TypediversPropositiontype;
 import com.nas.msc.basemvc.controller.NASCtl;
+import com.nas.msc.pdtm.typedivers_propositiontype.service.ITypediversPropositiontypeService;
 
 @Controller
 public class TypediversPropositiontypeCtl extends
 		NASCtl<TypediversPropositiontype> {
+	@Resource
+	private ITypediversPropositiontypeService service;
 
 	@Override
+	@RequestMapping("td_proposition")
 	public ModelAndView pageView(HttpSession se) {
-		// TODO Auto-generated method stub
-		return null;
+		return new ModelAndView("pdtm/typedivers/td_proposition");
 	}
 
 	@Override
-	public Object list(int page, int rows) {
-		// TODO Auto-generated method stub
-		return null;
+	@RequestMapping("list_td_proposition")
+	@ResponseBody
+	public Object list(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int rows) {
+		return service.query4EUI(page, rows);
 	}
 
 	@Override
+	@RequestMapping("save_td_proposition")
+	@ResponseBody
 	public Object save(TypediversPropositiontype bean) {
-		// TODO Auto-generated method stub
-		return null;
+		service.saveBean(bean);
+		return 1;
 	}
 
 	@Override
+	@RequestMapping("update_td_proposition")
+	@ResponseBody
 	public Object update(TypediversPropositiontype bean) {
-		// TODO Auto-generated method stub
-		return null;
+		service.updateBean(bean);
+		return 1;
 	}
 
 	@Override
+	@RequestMapping("del_td_proposition")
+	@ResponseBody
 	public Object delById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		service.deleteByID(id);
+		return 1;
 	}
 
 }

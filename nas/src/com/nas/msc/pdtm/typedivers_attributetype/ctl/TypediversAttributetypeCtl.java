@@ -22,7 +22,7 @@ public class TypediversAttributetypeCtl extends NASCtl<TypediversAttributetype> 
 	@Override
 	@RequestMapping("td_attrs")
 	public ModelAndView pageView(HttpSession se) {
-		return new ModelAndView("pdtm/td_attr");
+		return new ModelAndView("pdtm/typedivers/td_attr");
 	}
 
 	@Override
@@ -37,7 +37,8 @@ public class TypediversAttributetypeCtl extends NASCtl<TypediversAttributetype> 
 	@RequestMapping("save_td_attrs")
 	public @ResponseBody
 	Object save(TypediversAttributetype bean) {
-		return service.saveBean(bean);
+		service.saveBean(bean);
+		return 1;
 	}
 
 	@Override
@@ -61,5 +62,14 @@ public class TypediversAttributetypeCtl extends NASCtl<TypediversAttributetype> 
 	Object isRepeat(String name) {
 		return Checker.notNullList(service.queryByParaAndVal("name", name)) ? 1
 				: 0;
+	}
+
+	@RequestMapping("map_td_attrs")
+	public @ResponseBody
+	Object listAllNameAndId() {
+		map.clear();
+		map.put("datas", service.queryAll4Map());
+		return service.queryAll4Map();
+		// return map;
 	}
 }

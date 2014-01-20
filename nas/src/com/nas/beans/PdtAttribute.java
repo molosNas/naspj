@@ -1,6 +1,5 @@
 package com.nas.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -38,10 +37,16 @@ public class PdtAttribute extends BaseBean {
 	@Column(name = "description")
 	private String description;
 
-	@OneToOne(targetEntity = TypediversAttributetype.class, cascade = CascadeType.ALL)
+	@OneToOne(targetEntity = TypediversAttributetype.class)
 	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name = "attributetype_ref", updatable = false)
+	@JoinColumn(name = "attributetype_ref", updatable = true)
 	private TypediversAttributetype attributetype;
+
+	// @Transient
+	// private String typeName;
+	//
+	// @Transient
+	// private int typeId;
 
 	public String getAttributeId() {
 		return attributeId;
@@ -74,6 +79,22 @@ public class PdtAttribute extends BaseBean {
 	public void setAttributetype(TypediversAttributetype attributetype) {
 		this.attributetype = attributetype;
 	}
+
+	// public String getTypeName() {
+	// return attributetype.getName();
+	// }
+
+	// public void setTypeName(String typeName) {
+	// this.typeName = typeName;
+	// }
+	//
+	// public int getTypeId() {
+	// return attributetype.getId();
+	// }
+	//
+	// public void setTypeId(int typeId) {
+	// this.typeId = typeId;
+	// }
 
 	public PdtAttribute() {
 

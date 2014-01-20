@@ -22,7 +22,7 @@ public class TypediversModeltypeCtl extends NASCtl<TypediversModeltype> {
 	@Override
 	@RequestMapping("td_modeltype")
 	public ModelAndView pageView(HttpSession se) {
-		return new ModelAndView("pdtm/td_modeltype");
+		return new ModelAndView("pdtm/typedivers/td_modeltype");
 	}
 
 	@Override

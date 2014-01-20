@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.nas.beans.PdtAttribute;
@@ -24,33 +26,41 @@ public class PdtAttributeCtl extends NASCtl<PdtAttribute> {
 	private IPdtAttributeService service;
 
 	@Override
+	@RequestMapping("attrs")
+	public ModelAndView pageView(HttpSession se) {
+		return new ModelAndView("pdtm/pdt/attrs");
+	}
+
+	@Override
 	@RequestMapping("list_attrs")
-	public Object list(int page, int rows) {
+	@ResponseBody
+	public Object list(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "10") int rows) {
 		return service.query4EUI(page, rows);
 	}
 
 	@Override
 	@RequestMapping("save_attrs")
+	@ResponseBody
 	public Object save(PdtAttribute bean) {
-		return null;
+		service.saveBean(bean);
+		return 1;
 	}
 
 	@Override
 	@RequestMapping("update_attrs")
+	@ResponseBody
 	public Object update(PdtAttribute bean) {
-		return null;
+		service.updateBean(bean);
+		return 1;
 	}
 
 	@Override
 	@RequestMapping("del_attrs")
+	@ResponseBody
 	public Object delById(int id) {
-		return null;
-	}
-
-	@Override
-	@RequestMapping("attrs")
-	public ModelAndView pageView(HttpSession se) {
-		return null;
+		service.deleteByID(id);
+		return 1;
 	}
 
 }
