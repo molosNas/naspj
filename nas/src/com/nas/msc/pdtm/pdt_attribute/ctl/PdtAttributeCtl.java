@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.molos.tools.common.Checker;
 import com.nas.beans.PdtAttribute;
 import com.nas.msc.basemvc.controller.NASCtl;
 import com.nas.msc.pdtm.pdt_attribute.service.IPdtAttributeService;
@@ -63,4 +64,17 @@ public class PdtAttributeCtl extends NASCtl<PdtAttribute> {
 		return 1;
 	}
 
+	@RequestMapping("is_repeat_attrs_name")
+	@ResponseBody
+	public Object isRepeatName(String name) {
+		return Checker.nullList(service.queryByParaAndVal("name", name)) ? 1
+				: 0;
+	}
+
+	@RequestMapping("is_repeat_attrs_encid")
+	@ResponseBody
+	public Object isRepeatEncNum(String name) {
+		return Checker.nullList(service.queryByParaAndVal("attributeId", name)) ? 1
+				: 0;
+	}
 }

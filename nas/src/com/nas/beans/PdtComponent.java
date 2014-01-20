@@ -20,7 +20,7 @@ public class PdtComponent extends BaseBean {
 	 * 组件编码，候补键，命名规范
 	 */
 	@Column(name = "component_id")
-	private Integer componentId;
+	private String componentId;
 	/**
 	 * 组件名称
 	 */
@@ -32,11 +32,11 @@ public class PdtComponent extends BaseBean {
 	@Column(name = "description")
 	private String description;
 
-	public Integer getComponentId() {
+	public String getComponentId() {
 		return componentId;
 	}
 
-	public void setComponentId(Integer componentId) {
+	public void setComponentId(String componentId) {
 		this.componentId = componentId;
 	}
 

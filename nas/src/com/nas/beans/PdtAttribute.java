@@ -32,7 +32,7 @@ public class PdtAttribute extends BaseBean {
 	@Column(name = "name")
 	private String name;
 	/**
-	 * 
+	 * 属性描述
 	 */
 	@Column(name = "description")
 	private String description;
