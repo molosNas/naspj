@@ -11,8 +11,6 @@
 	$(function() {
 		$("a").click(
 				function() {
-
-					//vail
 					$("input[name='pazzwd']").val(
 							SHA256($("input[name='pazzwd']").val()));
 					$("form").submit();
@@ -24,7 +22,7 @@
 	<h1>login page</h1>
 	<form action="main" method="post">
 		username:<input type="text" name="uname" /><br> password:<input
-			type="password" name="pazzwd" /><br> <a href="javascript:void;">登陆</a>
+			type="password" name="pazzwd" /><br> <a href="javascript:void(0);">登陆</a>
 	</form>
 </body>
 </html>

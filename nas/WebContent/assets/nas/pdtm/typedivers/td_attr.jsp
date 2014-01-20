@@ -5,32 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>属性种类管理</title>
-<jsp:include page="../basedef/top_global.jsp" />
+<jsp:include page="../../basedef/top_global.jsp" />
+<script type="text/javascript" src="assets/common/js/a_common_opr.js"></script>
+
 <script type="text/javascript">
 $(function() {
 	$('#tt').datagrid({
 		title:"属性种类管理",
 		url:"list_td_attrs",
-		hideColumn: 'id',
-		striped:true,
-		singleSelect:true,
-		fitColumns:true,
-		rownumbers:true,
-		loadMsg:"数据装载中......",
-		pagination:true,
 	    columns:[[   
 	       {field:'id',title:'ID',width:0,hidden:true},   
 	       {field:'name',title:'名称',width:30,align:'center'},   
 	       {field:'description',title:'描述',width:100,align:'center'}
 	   ]],
 	   toolbar: "#toolbar"
-	});
-	$('#tt').datagrid("getPager").pagination({
-		pageSize: 10,
-		pageList: [5, 10, 50],
-		beforePageText: '第',
-		afterPageText: '页    共 {pages} 页',
-		displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 	});
 });
 </script>
@@ -57,6 +45,6 @@ $(function() {
 			</div>
 		</form>
 	</div>
-	<jsp:include page="../basedef/form_opr_bt.jsp"/>
+	<jsp:include page="../../basedef/form_opr_bt.jsp"/>
 </body>
 </html>
