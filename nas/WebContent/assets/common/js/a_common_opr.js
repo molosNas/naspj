@@ -41,11 +41,11 @@ $.extend($.fn.pagination.defaults,{
 });  
 var url;
 function addData(_action, _tt,func) {
+	$('#dlg').dialog('open').dialog('setTitle', _tt);
+	$('#fm').form('clear');
 	if(func!=null&&func!=undefined){
 		func();
 	}
-	$('#dlg').dialog('open').dialog('setTitle', _tt);
-	$('#fm').form('clear');
 	url = _action;
 }
 function editData(_action, _tt,func) {
