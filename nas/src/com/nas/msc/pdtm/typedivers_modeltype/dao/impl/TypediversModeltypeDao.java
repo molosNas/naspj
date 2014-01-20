@@ -33,4 +33,10 @@ public class TypediversModeltypeDao extends NASDao<TypediversModeltype>
 		return Integer.valueOf(o.toString());
 	}
 
+	@Override
+	public List<TypediversModeltype> queryAllName4Map() {
+		String hql = "select new TypediversModeltype(id,name) from TypediversModeltype";
+		return current().createQuery(hql).list();
+	}
+
 }

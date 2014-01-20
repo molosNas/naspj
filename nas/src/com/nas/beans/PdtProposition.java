@@ -2,7 +2,12 @@ package com.nas.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.nas.beans.base.BaseBean;
 
@@ -19,8 +24,8 @@ public class PdtProposition extends BaseBean {
 	/**
 	 * 方案编码
 	 */
-	@Column(name = "proposition_id")
-	private String propositionId;
+	@Column(name = "code_id")
+	private String codeId;
 	/**
 	 * 方案名称
 	 */
@@ -34,20 +39,24 @@ public class PdtProposition extends BaseBean {
 	/**
 	 * 方案所属属性大类
 	 */
-	@Column(name = "attributetype_ref")
-	private Integer attributetypeRef;
+	@OneToOne(targetEntity = TypediversAttributetype.class)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name = "attributetype_ref", updatable = true)
+	private TypediversAttributetype attributetype;
 	/**
 	 * 方案种类（输入，选择）
 	 */
-	@Column(name = "propositiontype_ref")
-	private Integer propositiontypeRef;
+	@OneToOne(targetEntity = TypediversPropositiontype.class)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name = "propositiontype_ref", updatable = true)
+	private TypediversPropositiontype propositiontype;
 
-	public String getPropositionId() {
-		return propositionId;
+	public String getCodeId() {
+		return codeId;
 	}
 
-	public void setPropositionId(String propositionId) {
-		this.propositionId = propositionId;
+	public void setCodeId(String codeId) {
+		this.codeId = codeId;
 	}
 
 	public String getName() {
@@ -66,20 +75,20 @@ public class PdtProposition extends BaseBean {
 		this.description = description;
 	}
 
-	public Integer getAttributetypeRef() {
-		return attributetypeRef;
+	public TypediversAttributetype getAttributetype() {
+		return attributetype;
 	}
 
-	public void setAttributetypeRef(Integer attributetypeRef) {
-		this.attributetypeRef = attributetypeRef;
+	public void setAttributetype(TypediversAttributetype attributetype) {
+		this.attributetype = attributetype;
 	}
 
-	public Integer getPropositiontypeRef() {
-		return propositiontypeRef;
+	public TypediversPropositiontype getPropositiontype() {
+		return propositiontype;
 	}
 
-	public void setPropositiontypeRef(Integer propositiontypeRef) {
-		this.propositiontypeRef = propositiontypeRef;
+	public void setPropositiontype(TypediversPropositiontype propositiontype) {
+		this.propositiontype = propositiontype;
 	}
 
 	public PdtProposition() {

@@ -79,4 +79,12 @@ public class TypediversModeltypeCtl extends NASCtl<TypediversModeltype> {
 				: 0;
 	}
 
+	@RequestMapping("map_td_modeltype")
+	public @ResponseBody
+	Object listAllNameAndId() {
+		map.clear();
+		map.put("datas", service.queryAll4Map());
+		return service.queryAll4Map();
+		// return map;
+	}
 }

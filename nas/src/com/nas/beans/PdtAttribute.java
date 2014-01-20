@@ -24,8 +24,8 @@ public class PdtAttribute extends BaseBean {
 	/**
 	 * 属性编码
 	 */
-	@Column(name = "attribute_id")
-	private String attributeId;
+	@Column(name = "code_id")
+	private String codeId;
 	/**
 	 * 属性名称
 	 */
@@ -42,12 +42,12 @@ public class PdtAttribute extends BaseBean {
 	@JoinColumn(name = "attributetype_ref", updatable = true)
 	private TypediversAttributetype attributetype;
 
-	public String getAttributeId() {
-		return attributeId;
+	public String getCodeId() {
+		return codeId;
 	}
 
-	public void setAttributeId(String attributeId) {
-		this.attributeId = attributeId;
+	public void setCodeId(String codeId) {
+		this.codeId = codeId;
 	}
 
 	public String getName() {

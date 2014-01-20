@@ -1,16 +1,18 @@
 package com.nas.beans;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.molos.util.TimeUtil;
 import com.nas.beans.base.BaseBean;
 
 /**
@@ -26,8 +28,8 @@ public class PdtModel extends BaseBean {
 	/**
 	 * 型号编码，副健，编码唯一，经常用到，长度固定
 	 */
-	@Column(name = "model_id")
-	private String modelId;
+	@Column(name = "code_id")
+	private String codeId;
 	/**
 	 * 模型名称 ,命名规范
 	 */
@@ -42,29 +44,59 @@ public class PdtModel extends BaseBean {
 	 * 创建日期 自动添加
 	 */
 	@Column(name = "date_creation")
-	private Timestamp dateCreation;
+	private Date dateCreation;
 	/**
 	 * 修改日期 自动添加
 	 */
 	@Column(name = "date_modification")
-	private Timestamp dateModification;
+	private Date dateModification;
 	/**
 	 * 删除日期 自动添加
 	 */
 	@Column(name = "date_delete")
-	private Timestamp dateDelete;
+	private Date dateDelete;
 
-	@OneToOne(targetEntity = TypediversAttributetype.class)
+	@OneToOne(targetEntity = TypediversModeltype.class)
 	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name = "modeltype_ref", updatable = true)
 	private TypediversModeltype modeltype;
+	@Transient
+	private String ctime;
+	@Transient
+	private String utime;
+	@Transient
+	private String dtime;
 
-	public String getModelId() {
-		return modelId;
+	public String getCtime() {
+		return TimeUtil.date2String(dateCreation, null);
 	}
 
-	public void setModelId(String modelId) {
-		this.modelId = modelId;
+	public void setCtime(String ctime) {
+		this.ctime = ctime;
+	}
+
+	public String getUtime() {
+		return TimeUtil.date2String(dateModification, null);
+	}
+
+	public void setUtime(String utime) {
+		this.utime = utime;
+	}
+
+	public String getDtime() {
+		return TimeUtil.date2String(dateDelete, null);
+	}
+
+	public void setDtime(String dtime) {
+		this.dtime = dtime;
+	}
+
+	public String getCodeId() {
+		return codeId;
+	}
+
+	public void setCodeId(String codeId) {
+		this.codeId = codeId;
 	}
 
 	public String getName() {
@@ -83,27 +115,27 @@ public class PdtModel extends BaseBean {
 		this.description = description;
 	}
 
-	public Timestamp getDateCreation() {
+	public Date getDateCreation() {
 		return dateCreation;
 	}
 
-	public void setDateCreation(Timestamp dateCreation) {
+	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 
-	public Timestamp getDateModification() {
+	public Date getDateModification() {
 		return dateModification;
 	}
 
-	public void setDateModification(Timestamp dateModification) {
+	public void setDateModification(Date dateModification) {
 		this.dateModification = dateModification;
 	}
 
-	public Timestamp getDateDelete() {
+	public Date getDateDelete() {
 		return dateDelete;
 	}
 
-	public void setDateDelete(Timestamp dateDelete) {
+	public void setDateDelete(Date dateDelete) {
 		this.dateDelete = dateDelete;
 	}
 

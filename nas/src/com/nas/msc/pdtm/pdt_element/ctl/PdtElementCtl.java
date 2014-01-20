@@ -67,7 +67,7 @@ public class PdtElementCtl extends NASCtl<PdtElement> {
 	@RequestMapping("is_repeat_element_encid")
 	@ResponseBody
 	public Object isRepeatEncNum(String name) {
-		return Checker.nullList(service.queryByParaAndVal("elementId", name)) ? 1
+		return Checker.nullList(service.queryByParaAndVal("codeId", name)) ? 1
 				: 0;
 	}
 }

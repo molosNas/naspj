@@ -65,4 +65,13 @@ public class TypediversPropositiontypeCtl extends
 		return Checker.nullList(service.queryByParaAndVal("name", name)) ? 1
 				: 0;
 	}
+	
+	@RequestMapping("map_td_propositiontype")
+	public @ResponseBody
+	Object listAllNameAndId() {
+		map.clear();
+		map.put("datas", service.queryAll4Map());
+		return service.queryAll4Map();
+		// return map;
+	}
 }

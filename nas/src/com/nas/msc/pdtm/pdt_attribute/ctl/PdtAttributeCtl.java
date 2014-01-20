@@ -74,7 +74,7 @@ public class PdtAttributeCtl extends NASCtl<PdtAttribute> {
 	@RequestMapping("is_repeat_attrs_encid")
 	@ResponseBody
 	public Object isRepeatEncNum(String name) {
-		return Checker.nullList(service.queryByParaAndVal("attributeId", name)) ? 1
+		return Checker.nullList(service.queryByParaAndVal("codeId", name)) ? 1
 				: 0;
 	}
 }

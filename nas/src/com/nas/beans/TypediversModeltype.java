@@ -46,4 +46,10 @@ public class TypediversModeltype extends BaseBean {
 	public TypediversModeltype() {
 
 	}
+
+	public TypediversModeltype(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 }
