@@ -1,6 +1,5 @@
 package com.nas.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -42,9 +41,10 @@ public class PdtElement extends BaseBean {
 	 */
 	@Column(name = "samplepath")
 	private String samplepath;
-	@OneToOne(targetEntity = TypediversAttributetype.class, cascade = CascadeType.ALL)
+
+	@OneToOne(targetEntity = TypediversAttributetype.class)
 	@Fetch(FetchMode.JOIN)
-	@JoinColumn(name = "attributetype_ref", updatable = false)
+	@JoinColumn(name = "attributetype_ref", updatable = true)
 	private TypediversAttributetype attributetype;
 
 	public String getElementId() {

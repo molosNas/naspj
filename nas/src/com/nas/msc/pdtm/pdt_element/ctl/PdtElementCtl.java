@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.molos.tools.common.Checker;
 import com.nas.beans.PdtElement;
 import com.nas.msc.basemvc.controller.NASCtl;
 import com.nas.msc.pdtm.pdt_element.service.IPdtElementService;
@@ -56,4 +57,17 @@ public class PdtElementCtl extends NASCtl<PdtElement> {
 		return 1;
 	}
 
+	@RequestMapping("is_repeat_element_name")
+	@ResponseBody
+	public Object isRepeatName(String name) {
+		return Checker.nullList(service.queryByParaAndVal("name", name)) ? 1
+				: 0;
+	}
+
+	@RequestMapping("is_repeat_element_encid")
+	@ResponseBody
+	public Object isRepeatEncNum(String name) {
+		return Checker.nullList(service.queryByParaAndVal("elementId", name)) ? 1
+				: 0;
+	}
 }

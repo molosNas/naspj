@@ -42,12 +42,6 @@ public class PdtAttribute extends BaseBean {
 	@JoinColumn(name = "attributetype_ref", updatable = true)
 	private TypediversAttributetype attributetype;
 
-	// @Transient
-	// private String typeName;
-	//
-	// @Transient
-	// private int typeId;
-
 	public String getAttributeId() {
 		return attributeId;
 	}
