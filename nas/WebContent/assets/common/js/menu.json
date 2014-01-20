@@ -8,55 +8,59 @@
 				{
 					"icon":"icon-sys",
 					"menuid":18,
-					"menuname":"属性种类配置",
+					"menuname":"附加种类配置<br>TypediversAnnextype",
+					"url":"td_annex?lang=zh_CN"
+				},
+				{
+					"icon":"icon-sys",
+					"menuid":18,
+					"menuname":"属性种类配置<br>TypediversAttributetype",
 					"url":"td_attrs"
 				},
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"型号种类配置",
+					"menuname":"型号种类配置<br>TypediversModeltype",
 					"url":"td_modeltype"
 				},
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"组件管理",
-					"url":"http://www.baidu.com"
+					"menuname":"方案种类配置<br>TypediversPropositiontype",
+					"url":"td_proposition"
 				},
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"属性配置",
-					"url":"http://www.baidu.com"
+					"menuname":"属性管理<br>PdtAttribute",
+					"url":"attrs"
 				}
 				,
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"属性种类配置",
-					"url":"http://www.baidu.com"
+					"menuname":"组件配置<br>PdtComponent",
+					"url":"component"
 				},
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"值管理",
-					"url":"http://www.baidu.com"
+					"menuname":"值管理<br>PdtElement",
+					"url":"element"
 				},
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"方案管理",
-					"url":"http://www.baidu.com"
+					"menuname":"型号管理<br>PdtModel",
+					"url":"model"
 				},
 				{
 					"icon":"icon-sys",
 					"menuid":9,
-					"menuname":"方案种类配置",
-					"url":"http://www.baidu.com"
+					"menuname":"方案管理<br>PdtProposition",
+					"url":"proposition"
 				}
-				
 			]
-			
 		}
 		,
 		{
