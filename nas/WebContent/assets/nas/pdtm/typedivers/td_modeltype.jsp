@@ -47,7 +47,7 @@ function update(){
 		<form id="fm" method="post" novalidate>
 			<div class="fitem">
 				<label> <spr:message code='pdtm.td.model.bean.name'/>:</label> <input name="name"
-					class="easyui-validatebox" validType="isRepeat['is_repeat_td_modeltype_name']"  invalidMessage="<spr:message code='pdtm.td.model.vail.name'/>" />
+					class="easyui-validatebox" required="true" validType="isRepeat['is_repeat_td_modeltype_name']"  invalidMessage="<spr:message code='pdtm.td.model.vail.name'/>" />
 			</div>
 			<div class="fitem">
 				<label style="float: left;"><spr:message code='pdtm.td.model.bean.description'/>:</label> 

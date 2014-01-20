@@ -17,7 +17,7 @@ $(function() {
 		url:"list_attrs",
 	    columns:[[   
 	       {field:'id',title:"<spr:message code='pdtm.attrs.bean.id'/>",width:0,hidden:true}, 
-	       {field:'attributeId',title:"<spr:message code='pdtm.attrs.bean.encid'/>",width:20,align:'center'}, 
+	       {field:'codeId',title:"<spr:message code='pdtm.attrs.bean.encid'/>",width:20,align:'center'}, 
 	       {field:'name',title:"<spr:message code='pdtm.attrs.bean.name'/>",width:30,align:'center'},   
 	       {field:'description',title:"<spr:message code='pdtm.attrs.bean.description'/>",width:100,align:'center'},
 	       {field:'attributetype',title:"<spr:message code='pdtm.attrs.bean.attributetype'/>",width:50,align:'center',formatter:function(row){
@@ -34,16 +34,16 @@ $(function() {
         });
 });
 function add(){
-	$("input[name='attributeId']").validatebox('reduce'); 
+	$("input[name='codeId']").validatebox('reduce'); 
 	$("input[name='name']").validatebox('reduce'); 
-	$("input[name='attributeId']").removeAttr('readonly');
+	$("input[name='codeId']").removeAttr('readonly');
 	$("input[name='name']").removeAttr('readonly');
 }
 function update(){
 	$("input[name='name']").validatebox('remove');
-	$("input[name='attributeId']").validatebox('remove');
+	$("input[name='codeId']").validatebox('remove');
 	$("input[name='name']").attr('readonly','readonly');
-	$("input[name='attributeId']").attr('readonly','readonly');
+	$("input[name='codeId']").attr('readonly','readonly');
 }
 </script>
 </head> 
@@ -60,7 +60,7 @@ function update(){
 		<div class="ftitle"><spr:message code='pdtm.attrs.form.title.main'/></div>
 		<form id="fm" method="post" novalidate>
 			<div class="fitem">
-				<label><spr:message code='pdtm.attrs.bean.encid'/>:</label> <input name="attributeId"
+				<label><spr:message code='pdtm.attrs.bean.encid'/>:</label> <input name="codeId"
 					class="easyui-validatebox" required="true" validType="isRepeat['is_repeat_attrs_encid']"  invalidMessage="<spr:message code='pdtm.attrs.vail.encid'/>" />
 			</div>
 			<div class="fitem">

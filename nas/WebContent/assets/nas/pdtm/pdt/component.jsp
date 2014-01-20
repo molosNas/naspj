@@ -17,7 +17,7 @@ $(function() {
 		url:"list_component",
 	    columns:[[   
 	       {field:'id',title:"<spr:message code='pdtm.component.bean.id'/>",width:0,hidden:true}, 
-	       {field:'componentId',title:"<spr:message code='pdtm.component.bean.encid'/>",width:20,align:'center'}, 
+	       {field:'codeId',title:"<spr:message code='pdtm.component.bean.encid'/>",width:20,align:'center'}, 
 	       {field:'name',title:"<spr:message code='pdtm.component.bean.name'/>",width:30,align:'center'},   
 	       {field:'description',title:"<spr:message code='pdtm.component.bean.description'/>",width:100,align:'center'}
 	   ]],
@@ -26,16 +26,16 @@ $(function() {
 	 
 });
 function add(){
-	$("input[name='componentId']").validatebox('reduce'); 
+	$("input[name='codeId']").validatebox('reduce'); 
 	$("input[name='name']").validatebox('reduce'); 
-	$("input[name='componentId']").removeAttr('readonly');
+	$("input[name='codeId']").removeAttr('readonly');
 	$("input[name='name']").removeAttr('readonly');
 }
 function update(){
 	$("input[name='name']").validatebox('remove');
-	$("input[name='componentId']").validatebox('remove');
+	$("input[name='codeId']").validatebox('remove');
 	$("input[name='name']").attr('readonly','readonly');
-	$("input[name='componentId']").attr('readonly','readonly');
+	$("input[name='codeId']").attr('readonly','readonly');
 }
 </script>
 </head> 
@@ -52,7 +52,7 @@ function update(){
 		<div class="ftitle"><spr:message code='pdtm.component.form.title.main'/></div>
 		<form id="fm" method="post" novalidate>
 			<div class="fitem">
-				<label><spr:message code='pdtm.component.bean.encid'/>:</label> <input name="componentId"
+				<label><spr:message code='pdtm.component.bean.encid'/>:</label> <input name="codeId"
 					class="easyui-validatebox" required="true" validType="isRepeat['is_repeat_component_encid']"  invalidMessage="<spr:message code='pdtm.component.vail.encid'/>" />
 			</div>
 			<div class="fitem">
