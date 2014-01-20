@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("a").click(
-				function() {
+				function(){ 
 					$("input[name='pazzwd']").val(
 							SHA256($("input[name='pazzwd']").val()));
 					$("form").submit();
