@@ -9,7 +9,7 @@ $.extend($.fn.validatebox.defaults.rules, {
 				dataType:"json",
 				async:false,
 				success:function(data){
-					if(data==0){
+					if(data==1){
 						bl=true;
 					};
 				}
@@ -40,14 +40,20 @@ $.extend($.fn.pagination.defaults,{
 	displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
 });  
 var url;
-function addData(_action, _tt) {
+function addData(_action, _tt,func) {
+	if(func!=null&&func!=undefined){
+		func();
+	}
 	$('#dlg').dialog('open').dialog('setTitle', _tt);
 	$('#fm').form('clear');
 	url = _action;
 }
-function editData(_action, _tt) {
+function editData(_action, _tt,func) {
 	var row = $('#tt').datagrid('getSelected');
 	if (row) {
+		if(func!=null&&func!=undefined){
+			func();
+		}
 		$('#dlg').dialog('open').dialog('setTitle', _tt);
 		$('#fm').form('load', row);
 		url = _action + '?id=' + row.id;
@@ -100,5 +106,17 @@ function delData(_action, _tt) {
 		$.messager.alert('提示', '请选择需要操作的数据!', 'warning');
 	}
 }
-
+$.extend($.fn.validatebox.methods, {  
+    remove: function(jq, newposition){  
+        return jq.each(function(){  
+            $(this).removeClass("validatebox-text validatebox-invalid").unbind('focus').unbind('blur');
+        });  
+    },
+    reduce: function(jq, newposition){  
+        return jq.each(function(){  
+           var opt = $(this).data().validatebox.options;
+           $(this).addClass("validatebox-text").validatebox(opt);
+        });  
+    }   
+});
 
