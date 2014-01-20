@@ -8,4 +8,9 @@ package com.nas.globaldef;
  */
 public interface SE {
 	static final String AUTH_USER = "AUTH_USER";
+	/**
+	 * 0为EN 1为ZH_CN
+	 */
+	static int LANGUAGE = 1;
+
 }
