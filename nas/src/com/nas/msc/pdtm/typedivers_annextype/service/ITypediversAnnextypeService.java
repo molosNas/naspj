@@ -6,4 +6,6 @@ import com.nas.beans.TypediversAnnextype;
 public interface ITypediversAnnextypeService extends
 		INASService<TypediversAnnextype> {
 
+	boolean isReference(int id);
+
 }

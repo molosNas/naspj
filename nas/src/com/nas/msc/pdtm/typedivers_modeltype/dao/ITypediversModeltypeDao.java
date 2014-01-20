@@ -9,4 +9,6 @@ public interface ITypediversModeltypeDao extends INASDao<TypediversModeltype> {
 
 	List<TypediversModeltype> queryByName(String name);
 
+	int referenceCount(int id);
+
 }

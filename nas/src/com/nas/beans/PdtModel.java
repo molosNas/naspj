@@ -4,7 +4,12 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.nas.beans.base.BaseBean;
 
@@ -48,11 +53,11 @@ public class PdtModel extends BaseBean {
 	 */
 	@Column(name = "date_delete")
 	private Timestamp dateDelete;
-	/**
-	 * 
-	 */
-	@Column(name = "modeltype_ref")
-	private Integer modeltypeRef;
+
+	@OneToOne(targetEntity = TypediversAttributetype.class)
+	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name = "modeltype_ref", updatable = true)
+	private TypediversModeltype modeltype;
 
 	public String getModelId() {
 		return modelId;
@@ -102,12 +107,12 @@ public class PdtModel extends BaseBean {
 		this.dateDelete = dateDelete;
 	}
 
-	public Integer getModeltypeRef() {
-		return modeltypeRef;
+	public TypediversModeltype getModeltype() {
+		return modeltype;
 	}
 
-	public void setModeltypeRef(Integer modeltypeRef) {
-		this.modeltypeRef = modeltypeRef;
+	public void setModeltype(TypediversModeltype modeltype) {
+		this.modeltype = modeltype;
 	}
 
 	public PdtModel() {

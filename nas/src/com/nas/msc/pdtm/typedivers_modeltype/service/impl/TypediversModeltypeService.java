@@ -25,4 +25,10 @@ public class TypediversModeltypeService extends NASService<TypediversModeltype>
 		return (ITypediversModeltypeDao) super.getDao();
 	}
 
+	@Override
+	public boolean isReference(int id) {
+		int count = getDao().referenceCount(id);
+		return count != 0 ? true : false;
+	}
+
 }

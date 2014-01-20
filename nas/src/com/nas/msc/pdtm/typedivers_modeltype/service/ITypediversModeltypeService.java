@@ -6,4 +6,6 @@ import com.nas.msc.basemvc.service.INASService;
 public interface ITypediversModeltypeService extends
 		INASService<TypediversModeltype> {
 
+	boolean isReference(int id);
+
 }

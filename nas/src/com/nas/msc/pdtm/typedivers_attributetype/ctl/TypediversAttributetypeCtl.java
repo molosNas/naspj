@@ -1,5 +1,7 @@
 package com.nas.msc.pdtm.typedivers_attributetype.ctl;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.molos.tools.common.Checker;
+import com.molos.util.PropertiesUtil;
 import com.nas.beans.TypediversAttributetype;
+import com.nas.globaldef.SE;
 import com.nas.msc.basemvc.controller.NASCtl;
 import com.nas.msc.pdtm.typedivers_attributetype.service.ITypediversAttributetypeService;
 
@@ -49,10 +53,20 @@ public class TypediversAttributetypeCtl extends NASCtl<TypediversAttributetype> 
 		return 1;
 	}
 
+	@SuppressWarnings("serial")
 	@Override
 	@RequestMapping("del_td_attrs")
 	public @ResponseBody
 	Object delById(int id) {
+		if (service.isReference(id)) {
+			return new HashMap<String, Object>() {
+				{
+					put("errorMsg",
+							new PropertiesUtil().readValue(lang(SE.LANGUAGE),
+									"pdtm.td.attr.del.reference.tip"));
+				}
+			};
+		}
 		service.deleteByID(id);
 		return 1;
 	}
@@ -60,7 +74,7 @@ public class TypediversAttributetypeCtl extends NASCtl<TypediversAttributetype> 
 	@RequestMapping("is_repeat_td_attrs_name")
 	public @ResponseBody
 	Object isRepeat(String name) {
-		return Checker.notNullList(service.queryByParaAndVal("name", name)) ? 1
+		return Checker.nullList(service.queryByParaAndVal("name", name)) ? 1
 				: 0;
 	}
 

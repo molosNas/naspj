@@ -44,4 +44,11 @@ public class TypediversAttributetypeService extends
 		return reList;
 	}
 
+	@Override
+	public boolean isReference(int id) {
+		// List<PdtAttribute> list=getDao().
+		int count = getDao().referenceCount(id);
+		return count != 0 ? true : false;
+	}
+
 }

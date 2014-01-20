@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.molos.tools.common.Checker;
 import com.nas.beans.TypediversPropositiontype;
 import com.nas.msc.basemvc.controller.NASCtl;
 import com.nas.msc.pdtm.typedivers_propositiontype.service.ITypediversPropositiontypeService;
@@ -53,8 +54,15 @@ public class TypediversPropositiontypeCtl extends
 	@RequestMapping("del_td_proposition")
 	@ResponseBody
 	public Object delById(int id) {
+
 		service.deleteByID(id);
 		return 1;
 	}
 
+	@RequestMapping("is_repeat_td_propositiontype_name")
+	@ResponseBody
+	public Object isRepeat(String name) {
+		return Checker.nullList(service.queryByParaAndVal("name", name)) ? 1
+				: 0;
+	}
 }

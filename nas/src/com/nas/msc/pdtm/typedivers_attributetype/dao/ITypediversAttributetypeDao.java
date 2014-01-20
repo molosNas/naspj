@@ -10,4 +10,6 @@ public interface ITypediversAttributetypeDao extends
 
 	List<TypediversAttributetype> queryAllName4Map();
 
+	int referenceCount(int id);
+
 }

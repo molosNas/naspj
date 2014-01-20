@@ -11,4 +11,6 @@ public interface ITypediversAttributetypeService extends
 
 	List<Map<String, Object>> queryAll4Map();
 
+	boolean isReference(int id);
+
 }

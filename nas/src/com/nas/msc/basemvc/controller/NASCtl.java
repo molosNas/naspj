@@ -31,4 +31,20 @@ public abstract class NASCtl<T> extends BaseCtl {
 
 	public abstract Object delById(int id);
 
+	protected String lang(int x) {
+		String s = "";
+		switch (x) {
+		case 0:
+			s = "messages_en.properties";
+			break;
+		case 1:
+			s = "messages_zh_CN.properties";
+			break;
+
+		default:
+			s = "messages_zh_CN.properties";
+			break;
+		}
+		return s;
+	}
 }

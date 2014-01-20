@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.molos.tools.common.Checker;
 import com.nas.beans.TypediversAnnextype;
 import com.nas.msc.basemvc.controller.NASCtl;
 import com.nas.msc.pdtm.typedivers_annextype.service.ITypediversAnnextypeService;
@@ -52,8 +53,15 @@ public class TypediversAnnextypeCtl extends NASCtl<TypediversAnnextype> {
 	@RequestMapping("del_td_annex")
 	@ResponseBody
 	public Object delById(int id) {
+		// boolean b = service.isReference(id);
 		service.deleteByID(id);
 		return 1;
 	}
 
+	@RequestMapping("is_repeat_td_annextype_name")
+	@ResponseBody
+	public Object isRepeat(String name) {
+		return Checker.nullList(service.queryByParaAndVal("name", name)) ? 1
+				: 0;
+	}
 }
